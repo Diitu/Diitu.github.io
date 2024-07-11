@@ -19,12 +19,13 @@ document.getElementById('submission').addEventListener('submit', function(event)
         if (response.ok) {
             return response.json();
         }
-        throw new Error('Network response was not ok.');
+        throw new Error('Network response was not ok:' + response.statusText);
     })
     .then(data => {
         alert('Subscription successful! You will be notified about the latest updates to Pulsey.');
     })
     .catch(error => {
+        console.error('There was a problem with your submission:', error.message);
         alert('There was a problem with your submission: ' + error.message);
     });
 });
