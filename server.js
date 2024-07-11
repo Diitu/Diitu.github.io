@@ -1,4 +1,4 @@
-document.getElementById('pulsey-subscription-form').addEventListener('submit', function(event) {
+document.getElementById('submission').addEventListener('submit', function(event) {
     event.preventDefault(); // Prevent the default form submission
 
     const email = document.getElementById('email').value;
