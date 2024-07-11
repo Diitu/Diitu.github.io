@@ -3,7 +3,7 @@ document.getElementById('submission').addEventListener('submit', function(event)
 
     const email = document.getElementById('email').value;
 
-    fetch('https://connect.mailerlite.com/api/subscribers', {
+    fetch('https://connect.mailerlite.com/api/pulsey_api', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
