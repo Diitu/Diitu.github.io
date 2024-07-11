@@ -14,7 +14,7 @@ document.getElementById('submission').addEventListener('submit', function(event)
         body:{
             email: "test@example.com",
             resubscribe: true
-        })
+        }
     })
         
     .then(response => {
