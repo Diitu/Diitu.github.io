@@ -3,7 +3,7 @@ document.getElementById('submission').addEventListener('submit', function(event)
 
     const email = document.getElementById('email').value;
 
-    fetch('/.netlify/functions/subscribe', {
+    fetch('/.netlify/functions/submission/submission.js', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
