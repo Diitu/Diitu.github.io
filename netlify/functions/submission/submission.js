@@ -16,7 +16,7 @@ const handler = async (event) => {
       throw new Error('EMAIL_TOKEN environment variable is not set');
     }
 
-    const response = await fetch('https://api.mailerlite.com/api/v2/subscribers', {
+    const response = await fetch('https://connect.mailerlite.com/api/subscribers', {
       method: 'POST',
       headers: {
         'Authorization': `Bearer ${process.env.EMAIL_TOKEN}`,
