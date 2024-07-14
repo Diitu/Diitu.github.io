@@ -2,24 +2,34 @@
 // require('dotenv').config()
 
 // // details in https://css-tricks.com/using-netlify-forms-and-netlify-functions-to-build-an-email-sign-up-widget
-exports.handler = async (event) => {
+const process = require('process');
+
+const handler = async (event) => {
   try {
     const fetch = (await import('node-fetch')).default;
     const { email } = JSON.parse(event.body);
 
     console.log(`Received a submission: ${email}`);
 
-    const response = await fetch('https://connect.mailerlite.com/api/subscribers', {
+    const response = await fetch('https://api.mailerlite.com/api/v2/subscribers', {
       method: 'POST',
       headers: {
         'Authorization': `Bearer ${process.env.EMAIL_TOKEN}`,
-        'Content-Type': 'application/json',
-        'Accept': 'application/json'
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
       },
-      body: JSON.stringify({ email })
+      body: JSON.stringify({ email }),
     });
 
-    const data = await response.json()
+    const data = await response.json();
+
+    if (!response.ok) {
+      return {
+        statusCode: response.status,
+        body: JSON.stringify(data)
+      };
+    }
+
     console.log(`Submitted to MailerLite: ${JSON.stringify(data)}`);
 
     return {
@@ -32,4 +42,4 @@ exports.handler = async (event) => {
   }
 };
 
-module.exports = { handler }
+module.exports = { handler };
