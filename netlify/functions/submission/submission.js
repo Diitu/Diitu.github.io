@@ -2,30 +2,34 @@
 // require('dotenv').config()
 
 // // details in https://css-tricks.com/using-netlify-forms-and-netlify-functions-to-build-an-email-sign-up-widget
-const process = require('process')
-
-const fetch = require('node-fetch')
-
-const { EMAIL_TOKEN } = process.env
-const handler = async (event) => {
-  const { email } = JSON.parse(event.body)
-  console.log(`Received a submission: ${email}`)
+exports.handler = async (event) => {
   try {
-    const response = await fetch('https://api.mailerlite.com/api/v2/subscribers', {
+    const fetch = (await import('node-fetch')).default;
+    const { email } = JSON.parse(event.body);
+
+    console.log(`Received a submission: ${email}`);
+
+    const response = await fetch('https://connect.mailerlite.com/api/subscribers', {
       method: 'POST',
       headers: {
-        'Authorization': `Bearer ${EMAIL_TOKEN}`,
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
-        
+        'Authorization': `Bearer ${process.env.EMAIL_TOKEN}`,
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
       },
-      body: JSON.stringify({ email }),
-    })
+      body: JSON.stringify({ email })
+    });
+
     const data = await response.json()
-    console.log(`Submitted to Buttondown:\n ${data}`)
+    console.log(`Submitted to MailerLite: ${JSON.stringify(data)}`);
+
+    return {
+      statusCode: 200,
+      body: JSON.stringify(data)
+    };
   } catch (error) {
-    return { statusCode: 422, body: String(error) }
+    console.error('Error submitting to MailerLite:', error);
+    return { statusCode: 422, body: String(error) };
   }
-}
+};
 
 module.exports = { handler }
