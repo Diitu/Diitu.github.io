@@ -11,6 +11,11 @@ const handler = async (event) => {
 
     console.log(`Received a submission: ${email}`);
 
+    // Ensure the environment variable is available
+    if (!process.env.EMAIL_TOKEN) {
+      throw new Error('EMAIL_TOKEN environment variable is not set');
+    }
+
     const response = await fetch('https://api.mailerlite.com/api/v2/subscribers', {
       method: 'POST',
       headers: {
