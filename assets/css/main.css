@@ -10,9 +10,9 @@
 */
 
 @font-face {
-    font-family: 'SFCompactRounded-Regular';
-    src: url('assets/fonts/SFCompactRounded-Regular.woff2') format('woff2'),
-         url('assets/fonts/SFCompactRounded-Regular.woff') format('woff');
+    font-family: 'SFCompactRounded-Medium';
+    src: url('assets/fonts/SFCompactRounded-Medium.woff2') format('woff2'),
+         url('assets/fonts/SFCompactRounded-Medium.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 }
@@ -1602,7 +1602,7 @@
 	}
 
 	body, input, select, textarea {
-		font-family: "SFCompactRounded-Regular",'Lato', sans-serif;
+		font-family: "SFCompactRounded-Medium",'Lato', sans-serif;
 		font-size: 15pt;
 		font-weight: 300;
 		line-height: 2;
@@ -1747,7 +1747,7 @@
 	code {
 		border-radius: 0;
 		border: solid 1px;
-		font-family: "SFCompactRounded-Regular", monospace;
+		font-family: "SFCompactRounded-Medium", monospace;
 		font-size: 0.9em;
 		margin: 0 0.25em;
 		padding: 0.25em 0.65em;
@@ -1755,7 +1755,7 @@
 
 	pre {
 		-webkit-overflow-scrolling: touch;
-		font-family: "SFCompactRounded-Regular", monospace;
+		font-family: "SFCompactRounded-Medium", monospace;
 		font-size: 0.9em;
 		margin: 0 0 2em 0;
 	}
@@ -2126,7 +2126,7 @@
 		.select-wrapper:before {
 			-moz-osx-font-smoothing: grayscale;
 			-webkit-font-smoothing: antialiased;
-			font-family: SFCompactRounded-Regular;
+			font-family: SFCompactRounded-Medium;
 			font-style: normal;
 			font-weight: normal;
 			text-transform: none !important;
@@ -2190,7 +2190,7 @@
 			input[type="radio"] + label:before {
 				-moz-osx-font-smoothing: grayscale;
 				-webkit-font-smoothing: antialiased;
-				font-family: SFCompactRounded-Regular;
+				font-family: SFCompactRounded-Medium;
 				font-style: normal;
 				font-weight: normal;
 				text-transform: none !important;
@@ -2325,7 +2325,7 @@
 		.icon:before {
 			-moz-osx-font-smoothing: grayscale;
 			-webkit-font-smoothing: antialiased;
-			font-family: SFCompactRounded-Regular;
+			font-family: SFCompactRounded-Medium;
 			font-style: normal;
 			font-weight: normal;
 			text-transform: none !important;
@@ -3227,7 +3227,7 @@
 		.navPanelToggle:before {
 			-moz-osx-font-smoothing: grayscale;
 			-webkit-font-smoothing: antialiased;
-			font-family: SFCompactRounded-Regular;
+			font-family: SFCompactRounded-Medium;
 			font-style: normal;
 			font-weight: normal;
 			text-transform: none !important;
@@ -3344,7 +3344,7 @@
 			#navPanel .close:before {
 				-moz-osx-font-smoothing: grayscale;
 				-webkit-font-smoothing: antialiased;
-				font-family: SFCompactRounded-Regular;
+				font-family: SFCompactRounded-Medium;
 				font-style: normal;
 				font-weight: normal;
 				text-transform: none !important;
